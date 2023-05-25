@@ -10,7 +10,11 @@ calculator.addEventListener('click',(e)=>{
             screen.innerText="";
             break;
         case '=':
-            screen.innerText=eval(screen.innerText);
+           let result=eval(screen.innerText).toString();
+            if(result.indexOf('.')!=-1){
+        result=result.substring(0,result.indexOf('.')+4);
+            }
+            screen.innerText=result;
             break;
         default:
             screen.innerText+=e.target.innerText;
